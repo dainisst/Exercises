@@ -354,7 +354,16 @@ public class Logic1
     /// </summary>
     public int TeaParty(int tea, int candy)
     {
-        throw new NotImplementedException();
+        if(tea < 5 || candy < 5)
+        {
+            return 0;
+        }
+        if(tea / candy >= 2 || candy / tea >= 2)
+        {
+            return 2;
+        }
+       
+        return 1;
     }
 
     /// <summary>
@@ -368,7 +377,21 @@ public class Logic1
     /// </summary>
     public string FizzString(string str)
     {
-        throw new NotImplementedException();
+         if(str.StartsWith('f') && str.EndsWith('b'))
+        {
+            return "FizzBuzz";
+        }
+        if(str.StartsWith('f'))
+        {
+            return "Fizz";
+        }
+        if(str.EndsWith('b'))
+        {
+            return "Buzz";
+        }
+       
+
+        return str;
     }
 
     /// <summary>
@@ -384,7 +407,20 @@ public class Logic1
     /// </summary>
     public string FizzString2(int n)
     {
-        throw new NotImplementedException();
+        if(n % 3 == 0 && n % 5 == 0)
+        {
+            return "FizzBuzz!";
+        }
+        if(n % 3 == 0)
+        {
+            return "Fizz!";
+        }
+        if(n % 5 == 0)
+        {
+            return "Buzz!"; 
+        }
+
+        return $"{n}!" ;
     }
 
     /// <summary>
