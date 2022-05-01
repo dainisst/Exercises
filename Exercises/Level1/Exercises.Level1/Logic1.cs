@@ -273,7 +273,10 @@ public class Logic1
     /// </summary>
     public bool Less20(int n)
     {
-        if(n % 20  )
+        if(n % 20 < 20 && n % 20 > 17)
+        {
+            return true;
+        }
 
         return false;
     }
@@ -289,7 +292,12 @@ public class Logic1
     /// </summary>
     public bool NearTen(int num)
     {
-        throw new NotImplementedException();
+        if(num % 10 <= 2 || num % 10 >= 8)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -302,7 +310,12 @@ public class Logic1
     /// </summary>
     public int TeenSum(int a, int b)
     {
-        throw new NotImplementedException();
+        if(a >= 13 && a <= 19 || b >= 13 && b <= 19)
+        {
+            return 19;
+        }
+       
+        return a + b;
     }
 
     /// <summary>
@@ -316,7 +329,16 @@ public class Logic1
     /// </summary>
     public bool AnswerCell(bool isMorning, bool isMom, bool isAsleep)
     {
-        throw new NotImplementedException();
+        if (isAsleep)
+        {
+            return false;
+        }
+        if(isMorning && !isMom)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     /// <summary>
