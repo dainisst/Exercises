@@ -432,7 +432,12 @@ public class Logic1
     /// </summary>
     public bool TwoAsOne(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        if(a + b == c || a + c == b || b + c == a)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -445,7 +450,15 @@ public class Logic1
     /// </summary>
     public bool InOrder(int a, int b, int c, bool bOk)
     {
-        throw new NotImplementedException();
+        if(b > a && c > b)
+        {
+            return true;
+        }
+        if(bOk && c > b)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -459,7 +472,16 @@ public class Logic1
     /// </summary>
     public bool InOrderEqual(int a, int b, int c, bool bOk)
     {
-        throw new NotImplementedException();
+         if(bOk && a <= b && b <= c)
+        {
+            return true;
+        }
+        if(a < b && b < c)
+        {
+            return true;
+        }
+       
+        return false;
     }
 
     /// <summary>
@@ -473,7 +495,12 @@ public class Logic1
     /// </summary>
     public bool LastDigit(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        if(a % 10 == b % 10 || a % 10 == c % 10 || c % 10 == b % 10)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -486,7 +513,12 @@ public class Logic1
     /// </summary>
     public bool LessBy10(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        if(b - a >= 10 || c - a >= 10 || a - b >= 10 || c - b >= 10 || b - c >= 10 || a - c >= 10)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -500,7 +532,16 @@ public class Logic1
     /// </summary>
     public int WithoutDoubles(int die1, int die2, bool noDoubles)
     {
-        throw new NotImplementedException();
+        if (noDoubles && die1 == die2)
+        {
+            if(die1 == 6)
+            {
+                return (die1 - 5) + die2;
+            }
+            return (die1 + 1) + die2;
+        }
+
+        return die1 + die2;
     }
 
     /// <summary>
@@ -515,7 +556,24 @@ public class Logic1
     /// </summary>
     public int MaxMod5(int a, int b)
     {
-        throw new NotImplementedException();
+        if(a == b)
+        {
+            return 0;
+        }
+        if(a % 5 == b % 5)
+        {
+            if(a > b)
+            {
+                return b;
+            }
+            return a;
+        }
+        if(a > b)
+        {
+            return a;
+        }
+
+        return b;
     }
 
     /// <summary>
@@ -530,7 +588,20 @@ public class Logic1
     /// </summary>
     public int RedTicket(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        if(a == b && b == c)
+        {
+            if(a == 2)
+            {
+                return 10;
+            }
+            return 5;
+        }
+        if(a != b && a != c)
+        {
+            return 1;
+        }
+
+        return 0;
     }
 
     /// <summary>
@@ -544,7 +615,16 @@ public class Logic1
     /// </summary>
     public int GreenTicket(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        if(a == b && b == c)
+        {
+            return 20;
+        }
+        if(a == b || a == c || b == c)
+        {
+            return 10;
+        }
+
+        return 0;
     }
 
     /// <summary>
@@ -559,7 +639,16 @@ public class Logic1
     /// </summary>
     public int BlueTicket(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        if(a + b == 10 || a + c == 10 || b + c == 10)
+        {
+            return 10;
+        }
+        if((a + b) - (a + c) == 10 || (a + b) - (b + c) == 10)
+        {
+            return 5;
+        }
+
+        return 0;
     }
 
     /// <summary>
@@ -573,7 +662,12 @@ public class Logic1
     /// </summary>
     public bool ShareDigit(int a, int b)
     {
-        throw new NotImplementedException();
+        if(a == b || a == b % 10 || a == b /10 || a % 10 == b || a % 10 == b % 10 || a % 10 == b / 10 || a / 10 == b || a / 10 == b % 10 || a / 10 == b / 10)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -588,7 +682,15 @@ public class Logic1
     /// </summary>
     public int SumLimit(int a, int b)
     {
-        throw new NotImplementedException();
+        int c = a + b;
+        string s = a.ToString();
+        string t = c.ToString();
+        if(s.Length == t.Length)
+        {
+            return a + b;
+        }
+
+        return a;
     }
 }
 
