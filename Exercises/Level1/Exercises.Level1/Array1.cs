@@ -384,7 +384,8 @@ public class Array1
     /// </summary>
     public int[] PlusTwo(int[] a, int[] b)
     {
-        throw new NotImplementedException();
+        int[] c = {a[0], a[1], b[0], b[1]};
+        return c;
     }
 
     /// <summary>
@@ -397,7 +398,11 @@ public class Array1
     /// </summary>
     public int[] SwapEnds(int[] nums)
     {
-        throw new NotImplementedException();
+        int first = nums[0];
+        nums[0] = nums[nums.Length - 1];
+        nums[nums.Length - 1] = first;
+
+        return nums;
     }
 
     /// <summary>
@@ -410,6 +415,9 @@ public class Array1
     /// </summary>
     public int[] MidThree(int[] nums)
     {
+        int[] nums2 = new int[3];
+
+
         throw new NotImplementedException();
     }
 
