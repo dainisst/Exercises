@@ -310,7 +310,7 @@ public class Array1
     /// their first element.
     /// 
     /// start1([1, 2, 3], [1, 3]) → 2
-    /// start1([7, 2, 3], [1]) → 1
+    /// start1([7, 2 , 3], [1]) → 1
     /// start1([1, 2], []) → 1
     /// </summary>
     public int Start1(int[] a, int[] b)
@@ -319,6 +319,9 @@ public class Array1
         {
             return 2;
         }
+        if (a[0] == 1 || b[0] == 1)
+        {
+            return 1;        }
         
 
         return 0;
@@ -474,7 +477,25 @@ public class Array1
     /// </summary>
     public bool Unlucky1(int[] nums)
     {
-        throw new NotImplementedException();
+        if (nums.Length <= 1)
+        {
+            return false;
+        }     
+
+        int first = nums[0];
+        int first2 = nums[1];
+        int last = nums[nums.Length - 1];
+        int last2 = nums[nums.Length - 2];
+        
+        if (first == 1 && first2 == 3)
+        {
+            return true;
+        }
+        if (last == 3 && last2 == 1)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -488,7 +509,23 @@ public class Array1
     /// </summary>
     public int[] Make2(int[] a, int[] b)
     {
-        throw new NotImplementedException();
+        
+        if (a.Length == 2)
+        {
+            return a;
+        }
+        if (a.Length == 0)
+        {
+            int[] c = {b[0], b[1]};
+            return c;
+        }
+        if (a.Length == 1)
+        {
+            int[] c = {a[0], b[0] };
+            return c;
+        }
+        int[] d = {a[0], a[1]};
+        return d;
     }
 
     /// <summary>
@@ -501,6 +538,21 @@ public class Array1
     /// </summary>
     public int[] Front11(int[] a, int[] b)
     {
-        throw new NotImplementedException();
+        if (b.Length == 0 && a.Length == 0)
+        {
+            return a;
+        }
+        if (a.Length == 0)
+        {
+            int[] d = { b[0] };
+            return d;
+        }
+        if (b.Length == 0)
+        {
+            int[] d = { a[0] };
+            return d;
+        }
+        int[] c = { a[0], b[0] };
+        return c;
     }
 }
