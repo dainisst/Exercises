@@ -415,10 +415,10 @@ public class Array1
     /// </summary>
     public int[] MidThree(int[] nums)
     {
-        int[] nums2 = new int[3];
+        int midlN = nums.Length / 2 - 1;
+        int[] nums2 = { nums[midlN], nums[midlN + 1], nums[midlN + 2]};
 
-
-        throw new NotImplementedException();
+        return nums2;
     }
 
     /// <summary>
@@ -431,7 +431,19 @@ public class Array1
     /// </summary>
     public int MaxTriple(int[] nums)
     {
-        throw new NotImplementedException();
+        int midl = nums[nums.Length / 2];
+        int first = nums[0];
+        int last = nums[nums.Length - 1];
+        if (first > midl && first > last)
+        {
+            return first;
+        }
+        if (midl > last && midl > first)
+        {
+            return midl;
+        }
+
+        return last;
     }
 
     /// <summary>
@@ -444,7 +456,12 @@ public class Array1
     /// </summary>
     public int[] FrontPiece(int[] nums)
     {
-        throw new NotImplementedException();
+        if (nums.Length < 2)
+        {
+            return nums;
+        }
+        int[] nums2 = {nums[0], nums[1]};
+        return nums2;
     }
 
     /// <summary>
