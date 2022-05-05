@@ -219,7 +219,7 @@ public class Array1
     /// </summary>
     public bool Has23(int[] nums)
     {
-        if (nums[0] == 2 || nums[0] == 3 || nums[nums.Length-1] == 2 || nums[nums.Length-1] == 3)
+        if (nums[0] == 2 || nums[0] == 3 || nums[nums.Length - 1] == 2 || nums[nums.Length - 1] == 3)
         {
             return true;
         }
@@ -240,7 +240,7 @@ public class Array1
             return false;
         }
 
-            return true;
+        return true;
     }
 
     /// <summary>
@@ -255,9 +255,9 @@ public class Array1
     public int[] MakeLast(int[] nums)
     {
         int[] numsNew = new int[nums.Length * 2];
-       
-        numsNew[numsNew.Length-1] = nums[nums.Length-1];
-        
+
+        numsNew[numsNew.Length - 1] = nums[nums.Length - 1];
+
         return numsNew;
     }
 
@@ -315,14 +315,34 @@ public class Array1
     /// </summary>
     public int Start1(int[] a, int[] b)
     {
+        if (a.Length == 0 && b.Length == 0)
+        {
+            return 0;
+        } 
+        if (a.Length == 0)
+        {
+            if (b[0] == 1)
+            {
+                return 1;
+            }
+            return 0;
+        }
+        if (b.Length == 0)
+        {
+            if (a[0] == 1)
+            {
+                return 1;
+            }
+            return 0;
+        }
         if (a[0] == 1 && b[0] == 1)
         {
             return 2;
         }
         if (a[0] == 1 || b[0] == 1)
         {
-            return 1;        }
-        
+            return 1; 
+        }
 
         return 0;
     }
@@ -480,18 +500,30 @@ public class Array1
         if (nums.Length <= 1)
         {
             return false;
-        }     
-
+        }
         int first = nums[0];
-        int first2 = nums[1];
+        int first2 = nums[1];        
         int last = nums[nums.Length - 1];
-        int last2 = nums[nums.Length - 2];
-        
+        int last2 = nums[nums.Length - 2];        
+        if(nums.Length == 2 && nums[1] != 3)
+        {
+            return false;
+        }
         if (first == 1 && first2 == 3)
         {
             return true;
-        }
+        }        
         if (last == 3 && last2 == 1)
+        {
+            return true;
+        }
+        int first3 = nums[2];
+        if (first2 == 1 && first3 == 3)
+        {
+            return true;
+        }
+        int last3 = nums[nums.Length - 3];
+        if (last2 == 3 && last3 == 1)
         {
             return true;
         }
