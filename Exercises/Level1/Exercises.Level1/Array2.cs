@@ -17,7 +17,17 @@ public class Array2
     /// </summary>
     public int CountEvens(int[] nums)
     {
-        throw new NotImplementedException();
+        int leng = nums.Length;
+        int even = 0;
+        for (int i = 0; i < leng; i++)
+        {
+            if (nums[i] % 2 == 0)
+            {
+                even++;
+            }
+
+        }
+        return even;
     }
 
     /// <summary>
@@ -31,7 +41,24 @@ public class Array2
     /// </summary>
     public int BigDiff(int[] nums)
     {
-        throw new NotImplementedException();
+        int max = nums[0];
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] > max)
+            {
+                max = nums[i];
+            }
+        }
+        int min = nums[0];
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] < min)
+            {
+                min = nums[i];
+            }
+        }
+        
+        return max - min;
     }
 
     /// <summary>
@@ -47,7 +74,32 @@ public class Array2
     /// </summary>
     public int CenteredAverage(int[] nums)
     {
-        throw new NotImplementedException();
+        int max = nums[0];
+        int min = nums[0];
+        int leng = nums.Length;
+        int sum = 0;
+        for (int i = 0; i < leng; i++)
+        {
+            if (nums[i] > max)
+            {
+                max = nums[i];
+            }
+        }
+        for (int i = 0; i < leng; i++)
+        {
+            if (nums[i] < min)
+            {
+                min = nums[i];
+            }
+        }
+        for (int i = 0; i < leng; i++)
+        {
+            sum = sum + nums[i];
+        }
+        int mean = (sum - min - max) / (leng - 2);
+
+
+        return mean;
     }
 
     /// <summary>
@@ -61,7 +113,24 @@ public class Array2
     /// </summary>
     public int Sum13(int[] nums)
     {
-        throw new NotImplementedException();
+        if (nums.Length == 0)
+        {
+            return 0;
+        }        
+
+        int sum = 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            sum = sum + nums[i];
+        }
+        int place13 = Array.IndexOf(nums, 13);
+
+        if (place13 > 0)
+        {
+            sum = sum - 13 - nums[place13 + 1];
+        }
+
+        return sum;
     }
 
     /// <summary>
