@@ -556,24 +556,38 @@ public class Logic1
     /// </summary>
     public int MaxMod5(int a, int b)
     {
-        if(a == b)
+        if (a == b)
         {
             return 0;
         }
-        if(a % 5 == b % 5)
+        if ((a % 5) == (b % 5))
         {
-            if(a > b)
-            {
-                return b;
-            }
-            return a;
+            return Math.Min(a, b);
         }
-        if(a > b)
-        {
-            return a;
-        }
+        
+        return Math.Max(a, b);
 
-        return b;
+
+
+
+        //if(a == b)
+        //{
+        //    return 0;
+        //}
+        //if(a % 5 == b % 5)
+        //{
+        //    if(a > b)
+        //    {
+        //        return b;
+        //    }
+        //    return a;
+        //}
+        //if(a > b)
+        //{
+        //    return a;
+        //}
+
+        //return b;
     }
 
     /// <summary>
