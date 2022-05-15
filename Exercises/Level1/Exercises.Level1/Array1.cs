@@ -22,12 +22,13 @@ public class Array1
         int first = nums[0];
         int last = nums[nums.Length - 1];
 
-        if (first == 6 || last == 6)
-        {
-            return true;
-        }
+        //if (first == 6 || last == 6)
+        //{
+        //    return true;
+        //}
 
-        return false;
+        //return false;
+        return first == 6 || last == 6;
     }
 
     /// <summary>
@@ -46,11 +47,12 @@ public class Array1
         }
         int first = nums[0];
         int last = nums[nums.Length - 1];
-        if (first == last)
-        {
-            return true;
-        }
-        return false;
+        //if (first == last)
+        //{
+        //    return true;
+        //}
+        //return false;
+        return first == last;
     }
 
     /// <summary>
@@ -60,8 +62,9 @@ public class Array1
     /// </summary>
     public int[] MakePi()
     {
-        int[] pi = { 3, 1, 4 };
-        return pi;
+        //int[] pi = { 3, 1, 4 };
+        //return pi;
+        return new int[] { 3, 1, 4 };
     }
 
     /// <summary>
@@ -74,16 +77,17 @@ public class Array1
     /// </summary>
     public bool CommonEnd(int[] a, int[] b)
     {
-        int firstA = a[0];
-        int firstB = b[0];
-        int lastA = a[a.Length - 1];
-        int lastB = b[b.Length - 1];
-        if ((firstA == firstB) || (lastA == lastB))
-        {
-            return true;
-        }
+        //int firstA = a[0];
+        //int firstB = b[0];
+        //int lastA = a[a.Length - 1];
+        //int lastB = b[b.Length - 1];
+        //if ((firstA == firstB) || (lastA == lastB))
+        //{
+        //    return true;
+        //}
 
-        return false;
+        //return false;
+        return a[0] == b[0] || a[a.Length - 1] == b[b.Length - 1];
     }
 
     /// <summary>
@@ -96,9 +100,13 @@ public class Array1
     public int Sum3(int[] nums)
     {
         int sum = 0;
-        for (int i = 0; i < nums.Length; i++)
+        //for (int i = 0; i < nums.Length; i++)
+        //{
+        //    sum += nums[i];
+        //}
+        foreach (int items in nums)
         {
-            sum += nums[i];
+            sum += items;
         }
 
         return sum;
@@ -115,9 +123,9 @@ public class Array1
     public int[] RotateLeft3(int[] nums)
     {
         int[] numsRot = { nums[1], nums[2], nums[0] };
-
         return numsRot;
     }
+    // jāpamēģina ar for
 
     /// <summary>
     /// Given an array of ints length 3, return an array with the elements "rotated left" so {1, 2,
