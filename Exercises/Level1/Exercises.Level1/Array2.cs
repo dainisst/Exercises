@@ -153,24 +153,35 @@ public class Array2
     public int Sum67(int[] nums)
     {
         //nepareizi
+        
+        var i = 0;
         int sum = 0;
-        var ignore = false;
-       
-        for (var i = 0; i < nums.Length; i++)
+        do
         {
-            if (nums[i] == 6)
-            {
-                ignore = true;
-            }
-            else if (nums[i] == 7)
-            {
-                ignore = false;
-            }
-            else if (!ignore)
-            { 
-                sum = sum + nums[i];
-            }                          
-        }
+            sum = sum + nums[i];
+            i++;
+        }while (nums[i] != 6);
+        
+
+
+
+        //var ignore = false;
+       
+        //for (var i = 0; i < nums.Length; i++)
+        //{
+        //    if (nums[i] == 6)
+        //    {
+        //        ignore = true;
+        //    }
+        //    else if (nums[i] == 7)
+        //    {
+        //        ignore = false;
+        //    }
+        //    else if (!ignore)
+        //    { 
+        //        sum = sum + nums[i];
+        //    }                          
+        //}
         return sum;
     }
 
@@ -581,7 +592,10 @@ public class Array2
     /// </summary>
     public bool TwoTwo(int[] nums)
     {
-        //nav
+        if (nums.Length <= 1)
+        {
+            return false;
+        }
         for (var i = 0; i < nums.Length; i++)
         {
            if(nums[i] == 2 && (i == 0 || nums[i - 1] != 2) && (i == (nums.Length - 1) || nums[i + 1] != 2))
