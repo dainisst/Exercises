@@ -57,7 +57,7 @@ public class Array2
                 min = nums[i];
             }
         }
-        
+
         return max - min;
     }
 
@@ -116,7 +116,7 @@ public class Array2
         if (nums.Length == 0)
         {
             return 0;
-        }        
+        }
 
         int sum = 0;
         for (var i = 0; i < nums.Length; i++)
@@ -153,35 +153,24 @@ public class Array2
     public int Sum67(int[] nums)
     {
         //nepareizi
-        
-        var i = 0;
         int sum = 0;
-        do
+        var ignore = false;
+
+        for (var i = 0; i < nums.Length; i++)
         {
-            sum = sum + nums[i];
-            i++;
-        }while (nums[i] != 6);
-        
-
-
-
-        //var ignore = false;
-       
-        //for (var i = 0; i < nums.Length; i++)
-        //{
-        //    if (nums[i] == 6)
-        //    {
-        //        ignore = true;
-        //    }
-        //    else if (nums[i] == 7)
-        //    {
-        //        ignore = false;
-        //    }
-        //    else if (!ignore)
-        //    { 
-        //        sum = sum + nums[i];
-        //    }                          
-        //}
+            if (nums[i] == 6)
+            {
+                ignore = true;
+            }
+            else if (nums[i] == 7 && ignore)
+            {
+                ignore = false;
+            }
+            else if (!ignore)
+            {
+                sum = sum + nums[i];
+            }
+        }
         return sum;
     }
 
@@ -240,12 +229,12 @@ public class Array2
             {
                 sum = sum + nums[i];
             }
-            
+
         }
         if (sum == 8)
-            {
-                return true;
-            }
+        {
+            return true;
+        }
         return false;
     }
 
@@ -365,7 +354,7 @@ public class Array2
                 four++;
             }
         }
-        if(one > 0 && four > 0)
+        if (one > 0 && four > 0)
         {
             return false;
         }
@@ -423,13 +412,13 @@ public class Array2
         }
 
         if (is22 && is44)
-            {
-                return false;
-            }
-            else if ((is22 && !is44) || (!is22 && is44))
-            {
-                return true;
-            }        
+        {
+            return false;
+        }
+        else if ((is22 && !is44) || (!is22 && is44))
+        {
+            return true;
+        }
 
         return false;
     }
@@ -471,7 +460,7 @@ public class Array2
             if ((nums[i] == 7 && nums[i - 1] == 7) || (nums[i] == 7 && nums[i - 2] == 7) || (nums[i - 1] == 7 && nums[i - 2] == 7))
             {
                 return true;
-                
+
             }
         }
         return false;
@@ -487,7 +476,7 @@ public class Array2
     /// </summary>
     public bool Has12(int[] nums)
     {
-        
+
         int one = Array.IndexOf(nums, 1);
         //int two = Array.IndexOf(nums, 2);
         //if (one == -1 || two == -1)
@@ -523,7 +512,7 @@ public class Array2
     /// modThree([2, 4, 2, 5]) → true
     /// </summary>
     public bool ModThree(int[] nums)
-    {        
+    {
         int countEven = 1;
         int countOdd = 1;
         for (var i = 1; i < nums.Length; i++)
@@ -598,7 +587,7 @@ public class Array2
         }
         for (var i = 0; i < nums.Length; i++)
         {
-           if(nums[i] == 2 && (i == 0 || nums[i - 1] != 2) && (i == (nums.Length - 1) || nums[i + 1] != 2))
+            if (nums[i] == 2 && (i == 0 || nums[i - 1] != 2) && (i == (nums.Length - 1) || nums[i + 1] != 2))
             {
                 return false;
             }
@@ -640,7 +629,7 @@ public class Array2
     {
         for (var i = 2; i < nums.Length; i++)
         {
-            if (nums[i] == nums[i - 1] + 1 && nums[i -1] == nums[i - 2] + 1)
+            if (nums[i] == nums[i - 1] + 1 && nums[i - 1] == nums[i - 2] + 1)
             {
                 return true;
             }
@@ -684,9 +673,9 @@ public class Array2
         {
             shiftL[nums.Length - 1] = nums[0];
             for (int i = 0; i < nums.Length - 1; i++)
-        {
-            shiftL[i] = nums[i + 1];
-        }
+            {
+                shiftL[i] = nums[i + 1];
+            }
         }
         return shiftL;
     }
@@ -704,7 +693,7 @@ public class Array2
     {
         int? value = null;
         for (var i = 0; i < nums.Length; i++)
-        {            
+        {
             if (nums[i] % 10 == 0)
             {
                 value = nums[i];
@@ -773,18 +762,18 @@ public class Array2
     {
         int[] arrr = new int[nums.Length];
         if (nums.Length > 2)
-        {        
-        for (var i = 1; i < nums.Length - 1; i++)
         {
-            arrr[0] = nums[0];
-            arrr[nums.Length - 1] = nums[nums.Length - 1];
-            arrr[i] = nums[i];
-            if (nums[i] == val && nums[i - 1] != val && nums[i + 1] != val)
+            for (var i = 1; i < nums.Length - 1; i++)
             {
-                arrr[i] = Math.Max(nums[i - 1], nums[i + 1]);
+                arrr[0] = nums[0];
+                arrr[nums.Length - 1] = nums[nums.Length - 1];
+                arrr[i] = nums[i];
+                if (nums[i] == val && nums[i - 1] != val && nums[i + 1] != val)
+                {
+                    arrr[i] = Math.Max(nums[i - 1], nums[i + 1]);
+                }
             }
-         }            
-        } 
+        }
         else
         {
             arrr = nums;
@@ -805,8 +794,9 @@ public class Array2
     /// </summary>
     public int[] ZeroFront(int[] nums)
     {
-       
-        throw new NotImplementedException();
+        Array.Sort(nums, (a1, a2) => (a1 == 0 ? 0 : 1).CompareTo(a2 == 0 ? 0 : 1));
+
+        return nums;
     }
 
     /// <summary>
@@ -821,8 +811,18 @@ public class Array2
     /// </summary>
     public int[] WithoutTen(int[] nums)
     {
+        int[] newarr = new int[nums.Length];
+        var index = 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] % 10 != 0)
+            {
+                newarr[index++] = nums[i];
+            }
 
-        throw new NotImplementedException();
+        }
+
+        return newarr;
     }
 
     /// <summary>
@@ -836,7 +836,24 @@ public class Array2
     /// </summary>
     public int[] ZeroMax(int[] nums)
     {
-        throw new NotImplementedException();
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == 0)
+            {
+                var value = 0;
+                for (var j = i + 1; j < nums.Length; j++)
+                {
+                    if (nums[j] % 2 == 1 && nums[j] > value)
+                    {
+                        value = nums[j];
+                    }
+                }
+
+                nums[i] = value;
+            }
+        }
+
+        return nums;
     }
 
     /// <summary>
@@ -851,8 +868,9 @@ public class Array2
     /// </summary>
     public int[] EvenOdd(int[] nums)
     {
+        Array.Sort(nums, (i1, i2) => (i1 % 2).CompareTo(i2 % 2));
 
-        throw new NotImplementedException();
+        return nums;
     }
 
     /// <summary>
@@ -871,7 +889,30 @@ public class Array2
     /// </summary>
     public string[] FizzBuzz(int start, int end)
     {
-        throw new NotImplementedException();
+        var arr = new string[end - start];
+
+        for (var i = start; i < end; i++)
+        {
+            if (i % 15 == 0)
+            {
+                arr[i - start] = "FizzBuzz";
+            }
+            else if (i % 5 == 0)
+            {
+                arr[i - start] = "Buzz";
+            }
+            else if (i % 3 == 0)
+            {
+                arr[i - start] = "Fizz";
+            }
+            else
+            {
+                arr[i - start] = i.ToString();
+            }
+        }
+
+        return arr;
+
+
     }
 }
-
