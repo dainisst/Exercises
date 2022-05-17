@@ -323,34 +323,47 @@ public class Array1
     /// </summary>
     public int Start1(int[] a, int[] b)
     {
-        if (a.Length == 0 && b.Length == 0)
+        int counter = 0;
+        if (a.Length != 0 && a[0] == 1)
         {
-            return 0;
-        } 
-        if (a.Length == 0)
-        {
-            if (b[0] == 1)
-            {
-                return 1;
-            }
-            return 0;
+            counter++;
         }
-        if (b.Length == 0)
+        if (b.Length != 0 && b[0] == 1)
         {
-            if (a[0] == 1)
-            {
-                return 1;
-            }
-            return 0;
+            counter++;
         }
-        if (a[0] == 1 && b[0] == 1)
-        {
-            return 2;
-        }
-        if (a[0] == 1 || b[0] == 1)
-        {
-            return 1; 
-        }
+        return counter;
+        
+        
+        
+        //if (a.Length == 0 && b.Length == 0)
+        //{
+        //    return 0;
+        //} 
+        //if (a.Length == 0)
+        //{
+        //    if (b[0] == 1)
+        //    {
+        //        return 1;
+        //    }
+        //    return 0;
+        //}
+        //if (b.Length == 0)
+        //{
+        //    if (a[0] == 1)
+        //    {
+        //        return 1;
+        //    }
+        //    return 0;
+        //}
+        //if (a[0] == 1 && b[0] == 1)
+        //{
+        //    return 2;
+        //}
+        //if (a[0] == 1 || b[0] == 1)
+        //{
+        //    return 1; 
+        //}
 
         return 0;
     }

@@ -18,7 +18,7 @@ public class Warmup1
     /// </summary>
     public bool SleepIn(bool weekday, bool vacation)
     {
-        throw new NotImplementedException();
+        return !weekday || vacation;
     }
 
     /// <summary>
@@ -33,7 +33,7 @@ public class Warmup1
     /// </summary>
     public bool MonkeyTrouble(bool aSmile, bool bSmile)
     {
-        throw new NotImplementedException();
+        return (aSmile && bSmile) || (!aSmile && !bSmile);
     }
 
     /// <summary>
@@ -46,7 +46,11 @@ public class Warmup1
     /// </summary>
     public int SumDouble(int a, int b)
     {
-        throw new NotImplementedException();
+        if (a == b)
+        {
+            return (a + b) * 2;
+        }
+        return a  + b;
     }
 
     /// <summary>
@@ -59,7 +63,16 @@ public class Warmup1
     /// </summary>
     public int Diff21(int n)
     {
-        throw new NotImplementedException();
+       int sum = 0;
+       if (Math.Abs(n) > 21)
+        {
+            sum = (21 - n) * 2;
+        }
+        else
+        {
+            sum = 21 - n;
+        }
+       return Math.Abs(sum);
     }
 
     /// <summary>
@@ -71,7 +84,7 @@ public class Warmup1
     /// </summary>
     public bool ParrotTrouble(bool talking, int hour)
     {
-        throw new NotImplementedException();
+        return talking && (hour < 7 || hour > 20);
     }
 
     /// <summary>
