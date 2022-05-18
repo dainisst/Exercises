@@ -96,7 +96,7 @@ public class Warmup1
     /// </summary>
     public bool Makes10(int a, int b)
     {
-        throw new NotImplementedException();
+        return a == 10 || b == 10 || a + b == 10;
     }
 
     /// <summary>
@@ -108,7 +108,7 @@ public class Warmup1
     /// </summary>
     public bool NearHundred(int n)
     {
-        throw new NotImplementedException();
+        return (n > 89 && n < 111) || (n > 189 && n < 211);
     }
 
     /// <summary>
@@ -121,7 +121,19 @@ public class Warmup1
     /// </summary>
     public bool PosNeg(int a, int b, bool negative)
     {
-        throw new NotImplementedException();
+        if (a < 0 && b < 0 && negative)
+        {
+            return true;
+        }
+        else if (a > 0 && b < 0 && !negative)
+        {
+            return true;
+        }
+        else if (a < 0 && b > 0 && !negative)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
