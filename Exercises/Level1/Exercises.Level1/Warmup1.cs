@@ -50,7 +50,7 @@ public class Warmup1
         {
             return (a + b) * 2;
         }
-        return a  + b;
+        return a + b;
     }
 
     /// <summary>
@@ -63,8 +63,8 @@ public class Warmup1
     /// </summary>
     public int Diff21(int n)
     {
-       int sum = 0;
-       if (Math.Abs(n) > 21)
+        int sum = 0;
+        if (Math.Abs(n) > 21)
         {
             sum = (21 - n) * 2;
         }
@@ -72,7 +72,7 @@ public class Warmup1
         {
             sum = 21 - n;
         }
-       return Math.Abs(sum);
+        return Math.Abs(sum);
     }
 
     /// <summary>
@@ -151,7 +151,7 @@ public class Warmup1
             return str;
         }
         return "not " + str;
-       
+
     }
 
     /// <summary>
@@ -201,7 +201,7 @@ public class Warmup1
         }
         else
         {
-            front = str.Substring(0, 3);           
+            front = str.Substring(0, 3);
         }
         return front + front + front;
     }
@@ -249,7 +249,7 @@ public class Warmup1
         else
         {
             front = str.Substring(0, 2);
-        }       
+        }
         return front + str + front;
     }
 
@@ -279,7 +279,7 @@ public class Warmup1
     public bool IcyHot(int temp1, int temp2)
     {
         return (temp1 < 0 && temp2 > 100) || (temp1 > 100 && temp2 < 0);
-       
+
     }
 
     /// <summary>
@@ -337,8 +337,11 @@ public class Warmup1
     public string DelDel(string str)
     {
         int posit = str.IndexOf("del");
-
-        return str.Remove(posit, 3);
+        if (posit == 1)
+        {
+            return str.Remove(posit, 3);
+        }
+        return str;
     }
 
     /// <summary>
@@ -350,7 +353,12 @@ public class Warmup1
     /// </summary>
     public bool MixStart(string str)
     {
-        throw new NotImplementedException();
+        int exist = str.IndexOf("ix");
+        if (exist == 1)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -362,7 +370,31 @@ public class Warmup1
     /// </summary>
     public string StartOz(string str)
     {
-        throw new NotImplementedException();
+        if (str.Length == 1 && str[0] == 'o')
+        {
+            str = "o";
+        }
+        else if (str.Length == 0)
+        {
+            str = "";
+        }
+        else if (str[0] == 'o' && str[1] == 'z')
+        {
+            str = "oz";
+        }
+        else if (str[0] == 'o')
+        {
+            str = "o";
+        }
+        else if (str[1] == 'z')
+        {
+            str = "z";
+        }
+        else
+        {
+            str = "";
+        }
+        return str;
     }
 
     /// <summary>
@@ -374,7 +406,7 @@ public class Warmup1
     /// </summary>
     public int IntMax(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        return Math.Max(Math.Max(a, b), c);
     }
 
     /// <summary>
@@ -387,7 +419,15 @@ public class Warmup1
     /// </summary>
     public int Close10(int a, int b)
     {
-        throw new NotImplementedException();
+        if (Math.Abs(10 - a) < Math.Abs(10 - b))
+        {
+            return a;
+        }
+        else if (Math.Abs(10 - a) > Math.Abs(10 - b))
+        {
+            return b;
+        }
+        return 0;
     }
 
     /// <summary>
@@ -399,7 +439,15 @@ public class Warmup1
     /// </summary>
     public bool In3050(int a, int b)
     {
-        throw new NotImplementedException();
+        if (a >= 30 && a <= 40 && b >= 30 && b <= 40)
+        {
+            return true;
+        }
+        else if (a >= 40 && a <= 50 && b >= 40 && b <= 50)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -411,7 +459,26 @@ public class Warmup1
     /// </summary>
     public int Max1020(int a, int b)
     {
-        throw new NotImplementedException();
+        if (a >= 10 && a <= 20 && b >= 10 && b <= 20)
+        {
+            if (a > b)
+            {
+                return a;
+            }
+            else
+            {
+                return b;
+            }
+        }
+        else if (a >= 10 && a <= 20 && (b < 10 || b > 20))
+            {
+            return a;
+            }
+        else if (b >= 10 && b <= 20 && (a < 10 || a > 20))
+        {
+            return b;
+        }
+        return 0;
     }
 
     /// <summary>
@@ -423,7 +490,19 @@ public class Warmup1
     /// </summary>
     public bool StringE(string str)
     {
-        throw new NotImplementedException();
+        int counter = 0;
+        for (var i = 0; i < str.Length; i++)
+        {
+            if (str[i] == 'e')
+            {
+                counter++;
+            }
+        }
+        if (counter > 0 && counter < 4)
+        {
+            return true;
+        }
+        return false;       
     }
 
     /// <summary>
@@ -435,7 +514,7 @@ public class Warmup1
     /// </summary>
     public bool LastDigit(int a, int b)
     {
-        throw new NotImplementedException();
+        return a % 10 == b % 10;
     }
 
     /// <summary>
@@ -448,7 +527,12 @@ public class Warmup1
     /// </summary>
     public string EndUp(string str)
     {
-        throw new NotImplementedException();
+        if (str.Length < 3)
+        {
+            return str.ToUpper();
+        }
+        return str.Substring(0, str.Length - 3) + str.Substring(str.Length - 3, 3).ToUpper();
+        
     }
 
     /// <summary>
@@ -460,6 +544,11 @@ public class Warmup1
     /// </summary>
     public string EveryNth(string str, int n)
     {
-        throw new NotImplementedException();
+        var result = string.Empty;
+        for (var i = 0; i < str.Length; i +=n )
+        {
+            result += str[i];           
+        }
+        return result;
     }
 }
