@@ -146,7 +146,12 @@ public class Warmup1
     /// </summary>
     public string NotString(string str)
     {
-        throw new NotImplementedException();
+        if (str.StartsWith("not"))
+        {
+            return str;
+        }
+        return "not " + str;
+       
     }
 
     /// <summary>
@@ -159,7 +164,7 @@ public class Warmup1
     /// </summary>
     public string MissingChar(string str, int n)
     {
-        throw new NotImplementedException();
+        return str.Remove(n, 1);
     }
 
     /// <summary>
@@ -171,7 +176,12 @@ public class Warmup1
     /// </summary>
     public string FrontBack(string str)
     {
-        throw new NotImplementedException();
+        if (str.Length < 2)
+        {
+            return str;
+        }
+        int len = str.Length;
+        return str[len - 1] + str.Substring(1, len - 2) + str[0];
     }
 
     /// <summary>
@@ -184,7 +194,16 @@ public class Warmup1
     /// </summary>
     public string Front3(string str)
     {
-        throw new NotImplementedException();
+        string front;
+        if (str.Length < 3)
+        {
+            front = str;
+        }
+        else
+        {
+            front = str.Substring(0, 3);           
+        }
+        return front + front + front;
     }
 
     /// <summary>
@@ -196,7 +215,7 @@ public class Warmup1
     /// </summary>
     public string BackAround(string str)
     {
-        throw new NotImplementedException();
+        return str[str.Length - 1] + str + str[str.Length - 1];
     }
 
     /// <summary>
@@ -209,7 +228,7 @@ public class Warmup1
     /// </summary>
     public bool Or35(int n)
     {
-        throw new NotImplementedException();
+        return n % 3 == 0 || n % 5 == 0;
     }
 
     /// <summary>
@@ -222,7 +241,16 @@ public class Warmup1
     /// </summary>
     public string Front22(string str)
     {
-        throw new NotImplementedException();
+        string front;
+        if (str.Length < 2)
+        {
+            front = str;
+        }
+        else
+        {
+            front = str.Substring(0, 2);
+        }       
+        return front + str + front;
     }
 
     /// <summary>
@@ -234,7 +262,11 @@ public class Warmup1
     /// </summary>
     public bool StartHi(string str)
     {
-        throw new NotImplementedException();
+        if (str.Length < 2)
+        {
+            return false;
+        }
+        return str.Substring(0, 2) == "hi";
     }
 
     /// <summary>
@@ -246,7 +278,8 @@ public class Warmup1
     /// </summary>
     public bool IcyHot(int temp1, int temp2)
     {
-        throw new NotImplementedException();
+        return (temp1 < 0 && temp2 > 100) || (temp1 > 100 && temp2 < 0);
+       
     }
 
     /// <summary>
@@ -258,7 +291,7 @@ public class Warmup1
     /// </summary>
     public bool In1020(int a, int b)
     {
-        throw new NotImplementedException();
+        return (a >= 10 && a <= 20) || (b >= 10 && b <= 20);
     }
 
     /// <summary>
@@ -271,7 +304,7 @@ public class Warmup1
     /// </summary>
     public bool HasTeen(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        return (a >= 13 && a <= 19) || (b >= 13 && b <= 19) || (c >= 13 && c <= 19);
     }
 
     /// <summary>
@@ -283,7 +316,15 @@ public class Warmup1
     /// </summary>
     public bool LoneTeen(int a, int b)
     {
-        throw new NotImplementedException();
+        if (a >= 13 && a <= 19 && b >= 13 && b <= 19)
+        {
+            return false;
+        }
+        else if ((a >= 13 && a <= 19) || (b >= 13 && b <= 19))
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -295,7 +336,9 @@ public class Warmup1
     /// </summary>
     public string DelDel(string str)
     {
-        throw new NotImplementedException();
+        int posit = str.IndexOf("del");
+
+        return str.Remove(posit, 3);
     }
 
     /// <summary>
