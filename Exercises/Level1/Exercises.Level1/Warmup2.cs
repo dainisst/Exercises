@@ -16,7 +16,12 @@ public class Warmup2
     /// </summary>
     public string StringTimes(string str, int n)
     {
-        throw new NotImplementedException();
+        string str2 = string.Empty;
+        for (var i = 0; i < n; i++)
+        {
+            str2 = str2 + str;
+        }
+        return str2;
     }
 
     /// <summary>
