@@ -34,7 +34,19 @@ public class Warmup2
     /// </summary>
     public string FrontTimes(string str, int n)
     {
-        throw new NotImplementedException();
+        string strNew = string.Empty;
+        for(var i = 0; i < n; i++)
+        {
+            if (str.Length > 2)
+            {
+                strNew = strNew + str.Substring(0, 3);
+            }
+            else
+            {
+                strNew = strNew + str;
+            }
+        }
+        return strNew;
     }
 
     /// <summary>
@@ -46,7 +58,15 @@ public class Warmup2
     /// </summary>
     public int CountXx(string str)
     {
-        throw new NotImplementedException();
+        int count = 0;
+        for (var i = 1; i < str.Length; i++)
+        {
+            if (str[i] == 'x' && str[i - 1] == 'x')
+            {
+                count++;
+            }
+        }
+        return count;
     }
 
     /// <summary>
@@ -58,7 +78,13 @@ public class Warmup2
     /// </summary>
     public bool DoubleX(string str)
     {
-        throw new NotImplementedException();
+        //nesanak
+        int place = str.IndexOf('x');
+        if (str.Length > 1 && str[place + 1] == 'x')
+        {
+            return true;
+        }        
+        return false;   
     }
 
     /// <summary>
@@ -70,7 +96,12 @@ public class Warmup2
     /// </summary>
     public string StringBits(string str)
     {
-        throw new NotImplementedException();
+        string strNew = string.Empty;
+        for (var i = 0; i < str.Length; i = i + 2)
+        {
+            strNew = strNew + str[i];
+        }
+        return strNew;
     }
 
     /// <summary>
@@ -82,7 +113,13 @@ public class Warmup2
     /// </summary>
     public string StringSplosion(string str)
     {
-        throw new NotImplementedException();
+        //nesanak
+        string newStr = string.Empty;
+        for (var i = 0; i < str.Length; i++)
+        {
+            newStr = newStr + newStr + str[i];
+        }
+        return newStr;
     }
 
     /// <summary>
@@ -94,6 +131,7 @@ public class Warmup2
     /// </summary>
     public int Last2(string str)
     {
+        //nesaprotu kas jadara
         throw new NotImplementedException();
     }
 
@@ -106,7 +144,15 @@ public class Warmup2
     /// </summary>
     public int ArrayCount9(int[] nums)
     {
-        throw new NotImplementedException();
+        int count = 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == 9)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 
     /// <summary>
@@ -119,7 +165,28 @@ public class Warmup2
     /// </summary>
     public bool ArrayFront9(int[] nums)
     {
-        throw new NotImplementedException();
+        if (nums.Length < 5)
+        {
+            for (var i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 9)
+                {
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            for (var i = 0; i < 4; i++)
+            {
+                if (nums[i] == 9)
+                {
+                    return true;
+                }
+            }
+        }
+        
+        return false;
     }
 
     /// <summary>
@@ -131,7 +198,23 @@ public class Warmup2
     /// </summary>
     public bool Array123(int[] nums)
     {
-        throw new NotImplementedException();
+        var count = 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == 1)
+            {
+                count = 1;
+            }
+            else if (nums[i] == 2 && count == 1)
+            {
+                count = 2;
+            }
+            else if (nums[i] == 3 && count == 2)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -144,6 +227,7 @@ public class Warmup2
     /// </summary>
     public int StringMatch(string a, string b)
     {
+        //nesaprotu nosacījumus
         throw new NotImplementedException();
     }
 
