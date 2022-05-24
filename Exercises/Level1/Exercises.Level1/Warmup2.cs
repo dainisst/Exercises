@@ -240,7 +240,23 @@ public class Warmup2
     /// </summary>
     public string StringX(string str)
     {
-        throw new NotImplementedException();
+        string newStr = string.Empty;
+        for (var i = 0; i < str.Length; i++)
+        {
+            if (str[i] != 'x')
+            {
+                newStr = newStr + str[i];
+            }
+        }
+        if (str[0] == 'x')
+        {
+            newStr = "x" + newStr;
+        }
+        if (str[str.Length - 1] == 'x')
+        {
+            newStr = newStr + "x"; 
+        }
+        return newStr;
     }
 
     /// <summary>
