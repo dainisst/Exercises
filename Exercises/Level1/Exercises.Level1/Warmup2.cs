@@ -78,12 +78,12 @@ public class Warmup2
     /// </summary>
     public bool DoubleX(string str)
     {
-        //nesanak
-        int place = str.IndexOf('x');
-        if (str.Length > 1 && str[place + 1] == 'x')
+        int index = str.IndexOf("xx");
+        int index2 = str.IndexOf('x');
+        if (index >= 0 && index == index2)
         {
             return true;
-        }        
+        }
         return false;   
     }
 
@@ -113,17 +113,17 @@ public class Warmup2
     /// </summary>
     public string StringSplosion(string str)
     {
-        //nesanak
         string newStr = string.Empty;
-        for (var i = 0; i < str.Length; i++)
+        for (var i = 0; i < str.Length + 1; i++)
         {
-            newStr = newStr + newStr + str[i];
+            newStr = newStr + str.Substring(0, i);
         }
         return newStr;
     }
 
     /// <summary>
-    /// Given a string, return the count of the number of times that a substring length 2 appears in the string and also as the last 2 chars of the string, so "hixxxhi" yields 1 (we won't count the end substring).
+    /// Given a string, return the count of the number of times that a substring length 2 appears in the 
+    /// string and also as the last 2 chars of the string, so "hixxxhi" yields 1 (we won't count the end substring).
     /// 
     /// last2("hixxhi") → 1
     /// last2("xaxxaxaxx") → 1
@@ -131,8 +131,19 @@ public class Warmup2
     /// </summary>
     public int Last2(string str)
     {
-        //nesaprotu kas jadara
-        throw new NotImplementedException();
+        int counter = 0;
+        if (str.Length > 1)
+        {
+            string strTofind = str.Substring(str.Length - 2);
+            for (var i = 0; i < str.Length - 2; i++)
+            {
+                if (str.Substring(i, 2) == strTofind)
+                {
+                    counter++;
+                }
+            }
+        }
+        return counter;
     }
 
     /// <summary>
@@ -227,8 +238,20 @@ public class Warmup2
     /// </summary>
     public int StringMatch(string a, string b)
     {
-        //nesaprotu nosacījumus
-        throw new NotImplementedException();
+        int longest = a.Length;
+        if (b.Length < a.Length)
+        {
+            longest = b.Length;
+        }
+        int counter = 0;
+        for (var i = 0; i < longest - 1; i++)
+        {
+            if (a.Substring(i, 2) == b.Substring(i, 2))
+            {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     /// <summary>
@@ -240,7 +263,31 @@ public class Warmup2
     /// </summary>
     public string StringX(string str)
     {
-        throw new NotImplementedException();
+        string newStr = string.Empty;
+        if (str.Length < 2)
+        {
+            newStr = str;
+        }
+        else
+        {
+            for (var i = 0; i < str.Length; i++)
+            {
+                if (str[i] != 'x')
+                {
+                    newStr = newStr + char.ToString(str[i]);
+                }
+            }
+            if (str[0] == 'x')
+            {
+                newStr = 'x' + newStr;
+            }
+            if (str[str.Length - 1] == 'x')
+            {
+                newStr = newStr + 'x';
+            }
+        }
+        
+        return newStr;
     }
 
     /// <summary>
@@ -252,11 +299,26 @@ public class Warmup2
     /// </summary>
     public string AltPairs(string str)
     {
-        throw new NotImplementedException();
+        //nesanak ar 8 simboliem
+        string newStr = string.Empty ;
+        for (var i = 0; i < str.Length; i = i + 4)
+        {
+            if (i < str.Length - 1)
+            {
+                newStr += str.Substring(i, 2);
+            }
+            else
+            {
+                newStr += str.Substring(i, 1);
+            }
+            
+        }
+        return newStr;
     }
 
     /// <summary>
-    /// Suppose the string "yak" is unlucky. Given a string, return a version where all the "yak" are removed, but the "a" can be any char. The "yak" strings will not overlap.
+    /// Suppose the string "yak" is unlucky. Given a string, return a version where all the "yak" are removed, but the "a" can be any char.
+    /// The "yak" strings will not overlap.
     /// 
     /// stringYak("yakpak") → "pak"
     /// stringYak("pakyak") → "pak"
@@ -264,7 +326,10 @@ public class Warmup2
     /// </summary>
     public string StringYak(string str)
     {
-        throw new NotImplementedException();
+        string str2 = string.Empty ;
+        str2 = str.Replace("yak", "");
+
+        return str2;
     }
 
     /// <summary>
@@ -277,11 +342,21 @@ public class Warmup2
     /// </summary>
     public int Array667(int[] nums)
     {
-        throw new NotImplementedException();
+        int counter = 0;
+        for (var i = 0; i < nums.Length - 1; i++)
+        {
+            if (nums[i] == 6 && (nums[i + 1] == 6 || nums[i + 1] == 7))
+            {
+                counter++;
+            }
+        }
+
+        return counter;
     }
 
     /// <summary>
-    /// Given an array of ints, we'll say that a triple is a value appearing 3 times in a row in the array. Return true if the array does not contain any triples.
+    /// Given an array of ints, we'll say that a triple is a value appearing 3 times in a row in the array. Return true if the 
+    /// array does not contain any triples.
     /// 
     /// noTriples([1, 1, 2, 2, 1]) → true
     /// noTriples([1, 1, 2, 2, 2, 1]) → false
@@ -289,11 +364,24 @@ public class Warmup2
     /// </summary>
     public bool NoTriples(int[] nums)
     {
-        throw new NotImplementedException();
+        int counter = 0;
+        for (var i = 0; i < nums.Length - 2; i++)
+        {
+            if (nums[i] == nums[i + 1] && nums[i] == nums[i + 2])
+            {
+                counter++;
+            }
+        }
+        if (counter > 0)
+        {
+            return false;
+        }
+        return true;
     }
 
     /// <summary>
-    /// Given an array of ints, return true if it contains a 2, 7, 1 pattern: a value, followed by the value plus 5, followed by the value minus 1. Additionally the 271 counts even if the "1" differs by 2 or less from the correct value.
+    /// Given an array of ints, return true if it contains a 2, 7, 1 pattern: a value, followed by the value plus 5,
+    /// followed by the value minus 1. Additionally the 271 counts even if the "1" differs by 2 or less from the correct value.
     /// 
     /// has271([1, 2, 7, 1]) → true
     /// has271([1, 2, 8, 1]) → false
@@ -301,7 +389,20 @@ public class Warmup2
     /// </summary>
     public bool Has271(int[] nums)
     {
-        throw new NotImplementedException();
+        int first = 2;
+        int second = first + 5;
+        int third = first - 1;
+        //nav
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == first && nums[i + 1] == second && nums[i + 2] == third)
+            {
+                return true;
+                
+            }
+        }
+
+       return false;
     }
 }
 
