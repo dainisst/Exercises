@@ -263,31 +263,7 @@ public class Warmup2
     /// </summary>
     public string StringX(string str)
     {
-        string newStr = string.Empty;
-        if (str.Length < 2)
-        {
-            newStr = str;
-        }
-        else
-        {
-            for (var i = 0; i < str.Length; i++)
-            {
-                if (str[i] != 'x')
-                {
-                    newStr = newStr + char.ToString(str[i]);
-                }
-            }
-            if (str[0] == 'x')
-            {
-                newStr = 'x' + newStr;
-            }
-            if (str[str.Length - 1] == 'x')
-            {
-                newStr = newStr + 'x';
-            }
-        }
-        
-        return newStr;
+        throw new NotImplementedException();
     }
 
     /// <summary>
