@@ -15,7 +15,13 @@ public class Dictionary1
     /// mapBully({ "a": "candy", "b": "carrot", "c": "meh"}) → {"a": "", "b": "candy", "c": "meh"}
     public Dictionary<string, string> DictionaryBully(Dictionary<string, string> map)
     {
-        throw new NotImplementedException();
+        if (map.TryGetValue("a", out string mapValue))
+        {
+            map["b"] = map["a"];
+            map["a"] = "";            
+        }
+
+        return map;
     }
 
     /// Modify and return the given map as follows: 
@@ -27,7 +33,14 @@ public class Dictionary1
     /// mapShare({ "a": "aaa", "c": "meh", "d": "hi"}) → {"a": "aaa", "b": "aaa", "d": "hi"}
     public Dictionary<string, string> DictionaryShare(Dictionary<string, string> map)
     {
-        throw new NotImplementedException();
+        if (map.TryGetValue("a", out string mapValue))
+        {
+            map["b"] = map["a"];            
+        }
+        map.Remove("c");
+
+        return map;
+       
     }
 
 
@@ -41,7 +54,11 @@ public class Dictionary1
     /// mapAB({ "b": "There"}) → {"b": "There"}
     public Dictionary<string, string> DictionaryAB(Dictionary<string, string> map)
     {
-        throw new NotImplementedException();
+        if (map.TryGetValue("a", out string mapValue) && map.TryGetValue("b", out string mapValue2))
+        {
+            map.Add("ab", map["a"] + map["b"]);
+        }
+        return map;
     }
 }
 
