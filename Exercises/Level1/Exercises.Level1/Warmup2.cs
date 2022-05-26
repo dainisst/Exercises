@@ -263,7 +263,18 @@ public class Warmup2
     /// </summary>
     public string StringX(string str)
     {
-        throw new NotImplementedException();
+        string strNew = string.Empty;
+
+        if (str.Length > 1)
+        {
+            strNew = str[0] + (str.Substring(1, str.Length - 2)).Replace("x", "") + str[str.Length - 1];
+        }
+        else
+        {
+            strNew = str;
+        }
+
+        return strNew;
     }
 
     /// <summary>
@@ -365,13 +376,11 @@ public class Warmup2
     /// </summary>
     public bool Has271(int[] nums)
     {
-        int first = 2;
-        int second = first + 5;
-        int third = first - 1;
         //nav
-        for (var i = 0; i < nums.Length; i++)
+
+        for (var i = 0; i < nums.Length - 2; i++)
         {
-            if (nums[i] == first && nums[i + 1] == second && nums[i + 2] == third)
+            if (nums[i + 1] - nums[i] == 5 && (nums[i] - nums[i + 2] >= -1 && nums[i] - nums[i + 2] <= 3))
             {
                 return true;
                 
