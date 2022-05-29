@@ -26,6 +26,16 @@ public class HalfTriangle
     /// <returns></returns>
     public string[] GetHalfTriangle(int n)
     {
-        throw new NotImplementedException();
+        var result = new string[n];
+        for (int i = 0; i < n; i++)
+        {
+            var line = string.Empty;
+            for (int j = 0; j <= 2 * i; j++)
+            {
+                line += "*";
+            }
+            result[i] = line;
+        }
+        return result;
     }
 }

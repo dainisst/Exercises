@@ -28,6 +28,21 @@ public class Triangle
     /// <returns></returns>
     public string[] GetTRiangle(int n)
     {
-        throw new NotImplementedException();
+        var result = new string[n];
+        for(var i = 0; i < n; i++)
+        {
+            var line = string.Empty;
+            for (var j = 1; j < n - i; j++)
+            {
+                line += " ";
+            }
+            for (var j = 0; j <= 2 * i; j++)
+            {
+                line += "*";
+            }
+            result[i] = line;
+        }
+
+        return result;
     }
 }
